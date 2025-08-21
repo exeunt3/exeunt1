@@ -1,0 +1,43 @@
+---
+const { title = 'Exeunt', description = 'Writing by Exeunt' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-theme="system">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display:opsz@27..144&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <script type="module">
+      const applyTheme = (mode) => {
+        document.documentElement.dataset.theme = mode;
+        localStorage.setItem('theme', mode);
+      };
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      }
+      window.__toggleTheme = () => {
+        const current = document.documentElement.dataset.theme;
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      };
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Exeunt</a>
+      <button class="theme-toggle" onclick="__toggleTheme()" aria-label="Toggle dark mode"><span>☼ / ☾</span></button>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} Exeunt</p>
+    </footer>
+  </body>
+</html>

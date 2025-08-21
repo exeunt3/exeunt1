@@ -1,0 +1,14 @@
+---
+import Base from "../../layouts/Base.astro";
+const { Content, frontmatter } = await Astro.props;
+---
+<Base title={`${frontmatter.title} — Exeunt`} description={frontmatter.summary}>
+  <article class="article">
+    <div class="banner">{frontmatter.banner && <img src={frontmatter.banner} alt="" />}</div>
+    <div class="eyebrow">{new Date(frontmatter.date).toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' })}</div>
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.summary && <p class="intro">{frontmatter.summary}</p>}
+    <hr class="hairline" />
+    <Content />
+  </article>
+</Base>
