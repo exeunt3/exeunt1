@@ -1,21 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
 
-function slugify(s) {
-  return String(s)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 const modules = import.meta.glob("../content/essays/*.md", { eager: true });
 
 const essays = Object.entries(modules)
   .map(([path, mod]) => {
     const file = path.replace(/^.*\/content\/essays\//, "").replace(/\.md$/, "");
+    const slug = String(file).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     const fm = mod.frontmatter ?? {};
-    const slug = slugify(file); // URL path
-    return { slug, frontmatter: fm };
+    // banner path for IPFS (homepage is root)
+    const rawBanner = fm.banner ?? "";
+    const bannerClean = rawBanner.startsWith("/") ? rawBanner.slice(1) : rawBanner;
+    const bannerSrc = bannerClean ? `./${bannerClean}` : "";
+    return { slug, frontmatter: fm, bannerSrc };
   })
   .filter((e) => !e.frontmatter.draft)
   .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
@@ -26,17 +23,18 @@ const essays = Object.entries(modules)
   <p class="intro"></p>
 
   <section class="essay-list">
-    {essays.map(({ slug, frontmatter }) => (
+    {essays.map(({ slug, frontmatter, bannerSrc }) => (
       <article class="card">
         <div class="thumb">
-          {frontmatter.banner && <img src={frontmatter.banner} alt="" loading="lazy" />}
+          {bannerSrc && <img src={bannerSrc} alt="" loading="lazy" />}
         </div>
         <div class="meta">
           <div class="date">
             {new Date(frontmatter.date).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
           </div>
           <h2 class="title">
-            <a href={`/essays/${slug}/`}>{frontmatter.title}</a>
+            {/* RELATIVE link so it works on IPFS */}
+            <a href={`./essays/${slug}/`}>{frontmatter.title}</a>
           </h2>
           {frontmatter.summary && <div class="summary">{frontmatter.summary}</div>}
         </div>

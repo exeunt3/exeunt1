@@ -7,34 +7,34 @@ export async function getStaticPaths() {
 
   return Object.entries(modules).map(([path, mod]) => {
     const file = path.replace(/^.*\/content\/essays\//, "").replace(/\.md$/, "");
-
-    // inline slugify right here
-    const slug = String(file)
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-
-    return {
-      params: { slug },
-      props: { post: mod },
-    };
+    const slug = String(file).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return { params: { slug }, props: { post: mod } };
   });
 }
 
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
+
+// banner path for IPFS (essay pages live at /essays/<slug>/)
+const rawBanner = frontmatter.banner ?? "";
+const bannerClean = rawBanner.startsWith("/") ? rawBanner.slice(1) : rawBanner;
+const bannerSrc = bannerClean ? `../../${bannerClean}` : "";
 ---
 
 <Base title={`${frontmatter.title} — Exeunt`} description={frontmatter.summary}>
   <article class="article">
-    <div class="banner">{frontmatter.banner && <img src={frontmatter.banner} alt="" />}</div>
+    {bannerSrc && (
+      <div class="banner">
+        <img src={bannerSrc} alt="" />
+      </div>
+    )}
     <div class="eyebrow">
       {new Date(frontmatter.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
     </div>
     <h1>{frontmatter.title}</h1>
     {frontmatter.summary && <p class="intro">{frontmatter.summary}</p>}
     <hr class="hairline" />
-     <div class="md">
+    <div class="md">
       <Content />
     </div>
   </article>
