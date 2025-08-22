@@ -1,7 +1,7 @@
 ---
 title: "Response to Levin's Ingressing Minds"
 date: "2025-02-16"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/exeunt.jpg"
 draft: false
 ---

@@ -1,14 +1,41 @@
 ---
 import Base from "../../layouts/Base.astro";
-const { Content, frontmatter } = await Astro.props;
+
+// Build all routes (Astro v5 expects string params)
+export async function getStaticPaths() {
+  const modules = import.meta.glob("../../content/essays/*.md", { eager: true });
+
+  return Object.entries(modules).map(([path, mod]) => {
+    const file = path.replace(/^.*\/content\/essays\//, "").replace(/\.md$/, "");
+
+    // inline slugify right here
+    const slug = String(file)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+
+    return {
+      params: { slug },
+      props: { post: mod },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
 ---
+
 <Base title={`${frontmatter.title} — Exeunt`} description={frontmatter.summary}>
   <article class="article">
     <div class="banner">{frontmatter.banner && <img src={frontmatter.banner} alt="" />}</div>
-    <div class="eyebrow">{new Date(frontmatter.date).toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' })}</div>
+    <div class="eyebrow">
+      {new Date(frontmatter.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
+    </div>
     <h1>{frontmatter.title}</h1>
     {frontmatter.summary && <p class="intro">{frontmatter.summary}</p>}
     <hr class="hairline" />
-    <Content />
+     <div class="md">
+      <Content />
+    </div>
   </article>
 </Base>

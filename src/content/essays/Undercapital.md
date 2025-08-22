@@ -1,7 +1,7 @@
 ---
 title: "Undercapital"
 date: "2024-09-10"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/undercapital.png"
 draft: false
 ---

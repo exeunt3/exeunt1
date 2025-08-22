@@ -1,8 +1,8 @@
 ---
 title: "What is Ethereum Localism?"
 date: "2024-06-29"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
-banner: "/images/exeunt.jpg"
+summary: ""
+banner: "/images/whatisethereumlocalism.png"
 draft: false
 ---
 

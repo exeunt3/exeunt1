@@ -1,7 +1,7 @@
 ---
 title: "On the Ontological Stakes of the Moloch Meme"
 date: "2023-05-02"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/ontologicalstakes.jpg"
 draft: false
 ---

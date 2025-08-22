@@ -1,7 +1,7 @@
 ---
 title: "We Are the Neotechnics!"
 date: "2024-02-08"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/exeunt.jpg"
 draft: false
 ---

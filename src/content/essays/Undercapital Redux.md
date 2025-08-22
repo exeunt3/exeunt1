@@ -1,8 +1,8 @@
 ---
 title: "Undercapital Redux"
 date: 2025-04-05
-summary: "Another example with a later date so it appears first. Replace this with your own words."
-banner: "/images/exeunt.jpg"
+summary: ""
+banner: "/images/undertheworld.png"
 draft: false
 ---
 # Undercapital *Redux*: Economic Design 'Underneath the World'

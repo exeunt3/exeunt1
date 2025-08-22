@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en" data-theme="system"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>about Exeunt — Exeunt</title><meta name="description" content><link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display:opsz@27..144&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"><script type="module">
+      const applyTheme = (mode) => {
+        document.documentElement.dataset.theme = mode;
+        localStorage.setItem('theme', mode);
+      };
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      }
+      window.__toggleTheme = () => {
+        const current = document.documentElement.dataset.theme;
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      };
+    </script></head> <body> <header class="site-header"> <a class="brand" href="/">Exeunt</a> <button class="theme-toggle" onclick="__toggleTheme()" aria-label="Toggle dark mode"><span>☼ / ☾</span></button> </header> <main class="container">  <article class="article"> <div class="banner"><img src="/images/exeunt.jpg" alt=""></div> <div class="eyebrow"> January 19, 2020 </div> <h1>about Exeunt</h1>  <hr class="hairline"> <div class="md"> <p><strong>Exeunt</strong> is an underground researcher and design theorist. Their work uses archival research, field investigation and applied philosophy to explore the economic and organizational patterns of extitutional spaces, both in urban and digital settings. Their major concerns include posthuman social organization, mutualist economics, direct democracy and open protocolization as features of non-institutional life. Aside from writing produced alone and in collaboration with the <strong>Open Protocol Research Group</strong>, they have written copy and co-organized events with <strong>Ethereal Forest</strong>, including the <em>General Forum on Ethereum Localism</em> and <a href="https://www.youtube.com/watch?v=Z7ORtiFmcZQ&#x26;list=PLEBjOB3CDGW0sQ-zm1rFDo_0P1OpbFeB0"><em>Local DAO Summer</em></a>.</p>
+<p><strong>Selected Writings</strong><br>
+<a href="https://www.openmutualism.xyz/exeunt/ETHEREUM-IS-POSTHUMAN">ETHEREUM IS POSTHUMAN: Notes for a Marketing Aesthetic</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Undercapital">Undercapital</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Sketches-Toward-a-Theory-of-the-Protocol-Underground">Sketches Toward a Theory of the Protocol Underground</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Haptic-Vision--and--Network-State-at-ETHDenver">Haptic Vision &#x26; Network State at ETHDenver</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Concrete-Pluralism">Concrete Pluralism</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Fragments-of-Ethereum-2068">Fragments-of-Ethereum-2068</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Fourth-of-July-in-Network-Space">Fourth of July in Network Space</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/FOOM---The-Organic-Arrival">FOOM - The Organic Arrival</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/On-the-Ontological-Stakes-of-the-Moloch-Meme">On the Ontological Stakes of the Moloch Meme</a><br>
+<a href="https://www.openmutualism.xyz/exeunt/Regenerative-Design-in-the-Many-Worlds">Regenerative Design in the Many Worlds</a>\</p> </div> </article>  </main> <footer class="site-footer"> <p>© 2025 Exeunt</p> </footer> </body></html>

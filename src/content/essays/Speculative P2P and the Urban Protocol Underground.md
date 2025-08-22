@@ -1,7 +1,7 @@
 ---
 title: "Speculative P2P and the Urban Protocol Underground"
 date: "2025-02-20"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/exeunt.jpg"
 draft: false
 ---

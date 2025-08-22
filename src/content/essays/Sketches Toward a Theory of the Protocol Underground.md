@@ -1,7 +1,7 @@
 ---
 title: "Sketches Toward a Theory of the Protocol Underground"
 date: "2024-07-10"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/sketches.jpeg"
 draft: false
 ---

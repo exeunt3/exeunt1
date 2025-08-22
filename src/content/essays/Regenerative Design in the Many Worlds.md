@@ -1,7 +1,7 @@
 ---
 title: "Regenerative Design in the Many Worlds"
 date: "2022-10-01"
-summary: "Another example with a later date so it appears first. Replace this with your own words."
+summary: ""
 banner: "/images/manyworlds.png"
 draft: false
 ---

@@ -120,3 +120,39 @@ hr.hairline { border: 0; border-top: 1px solid var(--hairline); margin: 1.6rem 0
 .article .eyebrow { color: var(--muted); margin: .3rem 0 1rem 0; font-size: .95rem; }
 .article h1 { font-size: clamp(2rem, 4.2vw, 3rem); margin: .2rem 0 0 0; }
 .article p { margin: 1rem 0; }
+
+/* Markdown content column */
+.md {
+  width: 100%;
+  max-width: 70ch;        /* match/compliment your text line length */
+  margin: 0 auto;         /* center the content column */
+}
+
+/* Keep all embedded media within the text width, no distortion */
+.md :where(img, video, canvas, iframe) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem auto;   /* nice breathing room & centered */
+  border-radius: 10px;    /* optional: match your card radius */
+}
+
+/* Optional: figure/figcaption polish */
+.md figure {
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+.md figure > img { margin: 0; }
+.md figcaption {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Keep the hero/banner styling separate so it can be wider if you like */
+.article .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

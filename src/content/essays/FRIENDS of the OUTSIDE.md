@@ -2,7 +2,7 @@
 title: "Friends of the Outside"
 date: "2023-07-28"
 summary: ""
-banner: "/images/exeunt.jpg"
+banner: "/images/FriendsOfTheOutside_thumb-cover.jpg"
 draft: false
 ---
 
