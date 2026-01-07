@@ -12,6 +12,7 @@ const { title = 'Exeunt', description = 'Writing by Exeunt' } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display:opsz@27..144&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap"
       rel="stylesheet"
     >
+    <!-- IMPORTANT: relative href so gateways don’t 404 -->
     <link
       rel="stylesheet"
       href={Astro.url.pathname.startsWith('/essays/') ? '../../styles/global.css' : './styles/global.css'}
@@ -36,10 +37,8 @@ const { title = 'Exeunt', description = 'Writing by Exeunt' } = Astro.props;
   </head>
   <body>
     <header class="site-header">
-      <a
-  class="brand"
-  href={Astro.url.pathname.startsWith('/essays/') ? '../../' : './'}
->Exeunt</a>
+      <!-- Brand link must be relative too -->
+      <a class="brand" href={Astro.url.pathname.startsWith('/essays/') ? '../../' : './'}>Exeunt</a>
       <button class="theme-toggle" onclick="__toggleTheme()" aria-label="Toggle dark mode"><span>☼ / ☾</span></button>
     </header>
     <main class="container">
