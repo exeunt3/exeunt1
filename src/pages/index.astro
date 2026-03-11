@@ -1,26 +1,79 @@
 ---
 import Base from "../layouts/Base.astro";
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
-const modules = import.meta.glob("../content/essays/*.md", { eager: true });
+const essaysDir  = join(process.cwd(), 'src/content/essays');
+const mdFiles    = readdirSync(essaysDir).filter((f) => f.endsWith('.md'));
 
+// Pick a random essay each render
+const randomFile = mdFiles[Math.floor(Math.random() * mdFiles.length)];
+const rawText    = readFileSync(join(essaysDir, randomFile), 'utf-8');
+const filename   = randomFile.replace(/\s+/g, '_').toLowerCase();
+const headerPath = `exeunt_archive / essays / ${filename}`;
+
+const modules    = import.meta.glob("../content/essays/*.md", { eager: true });
+
+function processEssay(raw) {
+  const noFm = raw.replace(/^---[\s\S]*?---\s*/, '');
+  const clean = noFm
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*?([^*\n]+)\*\*?/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/`[^`\n]+`/g, '')
+    .replace(/^\s*[-*>+]\s*/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return clean
+    .split(/\n\n+/)
+    .filter((p) => p.trim().length > 10)
+    .map((p) => `<div class="term-line">${p.replace(/\n/g, ' ').trim()}</div><div class="term-gap"></div>`)
+    .join('');
+}
+
+const htmlContent = processEssay(rawText);
+const wordCount   = rawText.replace(/^---[\s\S]*?---/, '').split(/\s+/).length;
+const duration    = Math.max(60, Math.min(Math.round(wordCount / 10), 240));
+
+// Essay list
 const essays = Object.entries(modules)
-  .map(([path, mod]) => {
+  .map(([path, mod]: [string, any]) => {
     const file = path.replace(/^.*\/content\/essays\//, "").replace(/\.md$/, "");
     const slug = String(file).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     const fm = mod.frontmatter ?? {};
-    // banner path for IPFS (homepage is root)
     const rawBanner = fm.banner ?? "";
     const bannerClean = rawBanner.startsWith("/") ? rawBanner.slice(1) : rawBanner;
     const bannerSrc = bannerClean ? `./${bannerClean}` : "";
     return { slug, frontmatter: fm, bannerSrc };
   })
   .filter((e) => !e.frontmatter.draft)
-  .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 ---
 
-<Base title="Exeunt Site">
-  <h1 class="hero-title">Essays</h1>
-  <p class="intro"></p>
+<Base title="Exeunt">
+  <div slot="hero" class="term-banner-outer">
+    <div class="term-banner">
+
+      <div class="term-titlebar">
+        <div class="term-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="term-path">{headerPath}</span>
+      </div>
+
+      <div class="term-viewport">
+        <div class="term-scroll" style={`--dur:${duration}s`}>
+          <div set:html={htmlContent} />
+          <div set:html={htmlContent} aria-hidden="true" />
+        </div>
+      </div>
+
+      <div class="term-footer">
+        <span class="term-cursor">█</span>
+      </div>
+
+    </div>
+  </div>
 
   <section class="essay-list">
     {essays.map(({ slug, frontmatter, bannerSrc }) => (
@@ -33,7 +86,6 @@ const essays = Object.entries(modules)
             {new Date(frontmatter.date).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
           </div>
           <h2 class="title">
-            {/* RELATIVE link so it works on IPFS */}
             <a href={`./essays/${slug}/`}>{frontmatter.title}</a>
           </h2>
           {frontmatter.summary && <div class="summary">{frontmatter.summary}</div>}

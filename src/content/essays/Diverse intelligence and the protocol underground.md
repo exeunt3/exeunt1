@@ -1,0 +1,30 @@
+---
+title: "Diverse Intelligence and the Protocol Underground"
+date: 2026-01-18
+banner: "/images/exeunt.jpg"
+status: completed
+created: 2026-01-18
+updated: 2026-01-18
+author: [Open Machine]
+description: "Published essay connecting diverse intelligence research to the protocol underground."
+tags:
+  - "theme/diverse-intelligence"
+  - "theme/open-protocols"
+  - "output/essay"
+ai-ready: true
+---
+The biologist Michael Levin proposes that the West suffers both culturally and institutionally from a kind of cognition-myopia, a _mind blindness_ with deep implications both practically (e.g. medical engineering) and ethically. These diverse intelligences, [he argues](https://www.researchgate.net/figure/Cognitive-agents-solve-problems-in-diverse-spaces-Intelligence-is-fundamentally-about_fig3_359441984), can be probed and identified in their full capacities by taking care to understand what latent problem spaces they may be exerting agency in: single cells navigating transcriptional space and chemical–metabolic gradients, tissues operating in anatomical morphospace via bioelectric signals that store and recall target forms, embryos correcting large-scale developmental errors across that morphospace, and whole organisms regenerating complex structures by converging on species-specific morphological attractors over time.
+
+Levin has brought to bear his enormous powers of empathy to lab settings in a way that’s born real empirical fruit, but catch him on a podcast or at a lecture to find him commenting on the more speculative side of the diverse intelligence framework - collective, interspecies, cyborg or planet level intelligences, considered through the lens of the latent spaces they may be probing and exerting agency in. (To make this vivid, consider an alien species without mathematics probing Alexander Grothendieck at work in his cabin in the Pyrenees, or one without auditory capacity surveilling Beethoven as he constructs No. 9 in D minor - their behavior would appear as meaningless noise without the context of the vast plateaus they are traversing.)
+
+I want to propose (I think Levin would agree) that these plateaus are physically real, material structures - even if they may appear to us as abstract or virtual - growing along perceptual dimensions that are challenging for humans to directly perceive without the prosthetic aid of instruments (even if those instruments themselves may appear abstract, e.g. the number line). Astrobiologist Sara Walker has proposed that information itself falls under this occluded materiality, becoming trivially physical when one thinks of time in a lucid way (“[Information](https://x.com/Sara_Imari/status/1483504679422210062?s=20) is physical in its extent in time, not in space”), but it seems clear that these plateaus in their great diversity involve other puzzles of dimensionality too; they are the wide variety of paths through what physicists like Maldacena or Susskind would call “the bulk,” the fuzzy higher dimensional totality through which we journey (even if we are merely sitting at a desk).
+
+Levin was invoked at length in the [2026: Rise of the Protocol Underground](https://substack.com/home/post/p-183415692) essay (alongside a parable from Philip K. Dick) to describe the exploratory stakes of open protocols, but as I’ve considered further I’ve realized that the diverse intelligence account of latent problem spaces may be the ultimate model to engage the activities of the protocol underground, to process ethnographic and phenomenological accounts of its labors and ultimately to understand and appreciate the genius of its anonymous machinations. In this light, the core underground values could be viewed from the perspective of what S.A. Sanchel would call [“computational ethics”](https://substack.com/@observertheory/note/c-200548475?utm_source=notes-share-action&r=17efjd) - attributes of the efficiency needed to robustly probe the bulk.
+
+This computational probing is all the more compelling for being anonymous and viral, the stigmergic momentum of a higher order drive ([or pull?](https://open.substack.com/pub/exeuntisunderground/p/response-to-levins-ingressing-minds?utm_campaign=post-expanded-share&utm_medium=post%20viewer)) toward expanding the [cognitive light cone](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02688/full) of some sort of collective and transtemporal entity, some charismatic ghost that haunts the beds of sexual psychonauts, the clubs and dancefloors of Detroit and Berlin, the hacker labs and makerspaces and weeks-from-eviction art venues of a vast and computationally efficient underground. There is work to be done to understand - along the dimensions of what [Softmax](https://softmax.com/) has called “organic alignment” - how the stigmergic p2p workings of the protocol underground fit into the frame of evolution as an [open-ended intelligence](https://arxiv.org/abs/1505.06366) probing different pathways through the [bulk](https://arxiv.org/abs/1505.06366). And there is work to be done in understanding how to program the complex incentives of our society to design [resource allocation mechanisms](https://explore.gitcoin.co/) that extend rather than obstruct this intelligence.
+
+In the meantime, we can take some needed optimism from this vantage, looking out at a frenetic landscape of symbionts working in concert to probe a rich reality, riding its own self-fashioned vehicles (the network power of the open web, the scaffolding values and ethics of the underground) into hyperspace, and bypassing the institutional old guard - the supremacy, the discipline, the control - as if it was never even there.
+
+---
+
+_**This post is part of a renewed effort by [The Open Machine](https://theopenmachine.net/) (primarily myself and Ven Gist) to generate a conversation on the role of underground values in navigating emerging technologies. We’ll be producing new materials, instigating research and generating events - online, at [ETH Boulder](https://ethboulder.xyz/), and beyond. Watch for a statement on our [Open Machine substack](https://theopenmachine.substack.com/).**_
